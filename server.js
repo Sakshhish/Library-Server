@@ -128,13 +128,19 @@ app.put("/users/:id", (req, res) => {
             message : "User does not exist!",
         })
     }
-    else{
-        const updateduser = users.map((each) => {
-            if(each.id === id);{
-                return 
+    const updateduser = users.map((each) => {
+        if(each.id === id);{
+            return {
+                ...each,
+                ...data,
             }
-        })
-    }
+        }
+        return each;
+    })
+    return res.status(200).json({
+        success: true,
+        data: updateduser,
+    })
 })
 
 
@@ -146,12 +152,21 @@ method- Delete
 access- public
 parameters- id
 */
-app.delete("/user", (req, res)=>{
+app.delete("/user/:id", (req, res)=>{
     const {id} = req.params;
     const user = users.find((each)=> each.id === id);
-    if (user){
-        
+    if (!user){
+        return res.status(401).json({
+            success: false,
+            "message": "User with the id doesn't exist."
+        })        
     }
+    const {index} = users.indexOf(user);
+    users.splice(index, 1);
+    return res.status(200).json({
+        success: true,
+        data: users
+    })
 })
 
 .listen(port, ()=>{
