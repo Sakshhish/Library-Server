@@ -1,25 +1,19 @@
 {
-  "name": "library-server",
+  "name": "Library-server",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "library management system",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "dev": "nodemon server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Sakshhish/Library-Server.git"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "sakshi",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Sakshhish/Library-Server/issues"
-  },
-  "homepage": "https://github.com/Sakshhish/Library-Server#readme",
   "dependencies": {
-    "express": "^4.18.2",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
     "nodemon": "^3.0.1"
   }
 }
+
