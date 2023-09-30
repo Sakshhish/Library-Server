@@ -5,7 +5,7 @@ const {usersdata} = require("./data/usersdata.json");
 
 const app = express();
 
-const PORT = 8081;
+const port = 8081;
 
 app.use(express.json());
 
@@ -16,8 +16,8 @@ const bookRouter = require("./routes/books");
 /* .use() fn
     app.use("url", route_to_be_followed) */
 
-app.use("/usersdata", userRouter);
-app.use("/booksdata", bookRouter);
+app.use("/userdata", userRouter);
+app.use("/bookdata", bookRouter);
 
 app.get("/", (req, res) => {
     res.status(200).send("Server running successfully");
@@ -177,7 +177,7 @@ app.get("/", (req, res) => {
 //     })
 // })
 
-app.listen(PORT, () => {
-    console.log(`Server is running at port ${PORT}`);
+app.listen(port, () => {
+    console.log(`Server is running at port ${port}`);
     // console.log(usersdata);  
 });
